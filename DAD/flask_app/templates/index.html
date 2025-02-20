@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Excel Processor</title>
+</head>
+<body>
+    <h1>Upload an Excel File and Input Column Names</h1>
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <label for="excel_file">Choose Excel file:</label>
+        <input type="file" name="excel_file" required><br><br>
+        
+        <label for="column1">Size:</label>
+        <input type="text" name="column1" required><br><br>
+        
+        <label for="column2">Rating:</label>
+        <input type="text" name="column2" required><br><br>
+
+        <label for="column3">MOC:</label>
+        <input type="text" name="column3" required><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
