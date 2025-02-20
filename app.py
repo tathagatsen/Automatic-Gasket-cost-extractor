@@ -1,16 +1,14 @@
 import os
+import io
 from flask import Flask, render_template, request, send_file
 import openpyxl
 from fractions import Fraction
-import io
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER = 'uploads'
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-
-# Define the path to the second Excel file
+# Load the reference file into memory at startup
 REFERENCE_FILE_PATH = 'static/cost/BOQ.xlsx'
+REFERENCE_WORKBOOK = openpyxl.load_workbook(REFERENCE_FILE_PATH, data_only=True)
 
 def getInch(inch):
     res = ""
@@ -44,26 +42,21 @@ def index():
         column2 = request.form['column2'].upper()
         column3 = request.form['column3'].upper()
 
-        # Ensure the uploads directory exists
-        os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-
-        # Save the uploaded file temporarily
-        file_path = os.path.join(UPLOAD_FOLDER, 'uploaded_file.xlsx')
-        file.save(file_path)
+        # Read the uploaded file into memory
+        file_stream = io.BytesIO(file.read())
 
         # Process the Excel file
-        modified_file = process_excel(file_path, column1, column2, column3)
+        modified_file = process_excel(file_stream, column1, column2, column3)
 
         # Send the modified file as a response
         return send_file(modified_file, as_attachment=True, download_name="modified_file.xlsx")
 
     return render_template('index.html')
 
-
-def process_excel(file_path, column1, column2, column3):
-    # Load workbooks
-    db1 = openpyxl.load_workbook(file_path)
-    db2 = openpyxl.load_workbook(REFERENCE_FILE_PATH, data_only=True)
+def process_excel(file_stream, column1, column2, column3):
+    # Load workbooks from memory
+    db1 = openpyxl.load_workbook(file_stream)
+    db2 = REFERENCE_WORKBOOK  # Use preloaded reference file
 
     # Select worksheets
     ws1 = db1["Table 1"]
@@ -94,7 +87,7 @@ def process_excel(file_path, column1, column2, column3):
                 ws1[f"I{4 + i}"].value = ws2[f"Z{j}"].value
                 print(Inches[i], Rating[i], ws2[f"Z{j}"].value)
 
-    # Save the modified workbook to a BytesIO object
+    # Save the modified workbook to memory
     modified_file = io.BytesIO()
     db1.save(modified_file)
     modified_file.seek(0)
