@@ -1,0 +1,37 @@
+<!-- templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select Sheets</title>
+    <link rel="stylesheet" href="/static/css/home.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Select Sheets to Match</h2>
+        <form action="/home" method="POST">
+            <div class="dropdown-group">
+                <label for="sheet1">Sheet from File 1:</label>
+                <select name="sheet1" id="sheet1">
+                    {% for sheet in sheets1 %}
+                        <option value="{{ sheet }}">{{ sheet }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="dropdown-group">
+                <label for="sheet2">Sheet from File 2:</label>
+                <select name="sheet2" id="sheet2">
+                    {% for sheet in sheets2 %}
+                        <option value="{{ sheet }}">{{ sheet }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+
+    <script src="/static/js/home.js"></script>
+</body>
+</html>

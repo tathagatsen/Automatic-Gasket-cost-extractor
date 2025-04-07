@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -25,5 +25,120 @@
         <input type="text" name="column4" required><br><br>
         <button type="submit">Submit</button>
     </form>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Upload with Inputs</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+    <h2>Upload Your Files</h2>
+    <!-- <form action="/" method="POST" enctype="multipart/form-data">
+    <div class="upload-container">
+        <div class="upload-box">
+            <div class="drop-area" id="drop-area-1">
+                <p>Drag & Drop File 1 Here or Click to Upload</p>
+                <input type="file" id="file-input-1" name="excel_file_1"  hidden>
+            </div>
+            <div class="input-pair">
+                <input type="text" class="input-box" placeholder="Input 1A" name="1A">
+                <input type="text" class="input-box" placeholder="Input 1B" name="1B">
+            </div>
+            <div class="input-pair">
+                <input type="text" class="input-box" placeholder="Input 2A" name="2A">
+                <input type="text" class="input-box" placeholder="Input 2B" name="2B">
+            </div>
+            <div class="input-pair">
+                <input type="text" class="input-box" placeholder="Input 3A" name="3A">
+                <input type="text" class="input-box" placeholder="Input 3B" name="3B">
+            </div>
+        </div>
+
+        <div class="upload-box">
+            <div class="drop-area" id="drop-area-2">
+                <p>Drag & Drop File 2 Here or Click to Upload</p>
+                <input type="file" id="file-input-2" name="excel_file_2"  hidden>
+            </div>
+            <div class="input-pair">
+                <input type="text" class="input-box" placeholder="Input 4A" name="4A">
+                <input type="text" class="input-box" placeholder="Input 4B" name="4B">
+            </div>
+            <div class="input-pair">
+                <input type="text" class="input-box" placeholder="Input 5A" name="5A">
+                <input type="text" class="input-box" placeholder="Input 5B" name="5B">
+            </div>
+            <div class="input-pair">
+                <input type="text" class="input-box" placeholder="Input 6A" name="6A">
+                <input type="text" class="input-box" placeholder="Input 6B" name="6B">
+            </div>
+        </div>
+    </div>
+
+    <div class="pairup">
+        <input type="text" class="output-box" placeholder="Output column" name="op">
+        <input type="text" class="output-box" placeholder="cost" name="cost"> 
+        <button type="submit" class="submit-button" name="submit">Submit</button>
+    </div>
+    
+    </form> -->
+    <form method="POST" enctype="multipart/form-data">
+        <label>Select Excel File 1:</label><br>
+        <input type="file" name="excel_file_1" required><br><br>
+    
+        <label>Select Excel File 2:</label><br>
+        <input type="file" name="excel_file_2" required><br><br>
+    
+        <label>Input 1A:</label><br>
+        <input type="text" name="1A" required><br><br>
+    
+        <label>Input 1B:</label><br>
+        <input type="text" name="1B" required><br><br>
+        
+        <label>Input 2A:</label><br>
+        <input type="text" name="2A" ><br><br>
+    
+        <label>Input 2B:</label><br>
+        <input type="text" name="2B" ><br><br>
+
+        <label>Input 3A:</label><br>
+        <input type="text" name="3A" ><br><br>
+    
+        <label>Input 3B:</label><br>
+        <input type="text" name="3B" ><br><br>
+
+        <label>Input 4A:</label><br>
+        <input type="text" name="4A" ><br><br>
+    
+        <label>Input 4B:</label><br>
+        <input type="text" name="4B" ><br><br>
+
+        <label>Input 5A:</label><br>
+        <input type="text" name="5A" ><br><br>
+    
+        <label>Input 5B:</label><br>
+        <input type="text" name="5B" ><br><br>
+
+        <label>Input 6A:</label><br>
+        <input type="text" name="6A" ><br><br>
+    
+        <label>Input 6B:</label><br>
+        <input type="text" name="6B" ><br><br>
+
+        <label>Output Column:</label><br>
+        <input type="text" name="op" required><br><br>
+    
+        <label>Cost:</label><br>
+        <input type="text" name="cost" required><br><br>
+    
+        <button type="submit">Submit</button>
+    </form>
+    <script src="/static/js/script.js"></script>
 </body>
 </html>

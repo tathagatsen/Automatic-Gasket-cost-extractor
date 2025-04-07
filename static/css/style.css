@@ -1,63 +1,74 @@
-/* General styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    text-align: center;
+    margin: 20px;
 }
 
-.container {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    max-width: 600px;
+.upload-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0;
+}
+
+.upload-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.drop-area {
+    width: 250px;
+    height: 150px;
+    border: 2px dashed #007bff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 10px;
+}
+
+.drop-area:hover {
+    background-color: #f0f0f0;
+}
+
+.input-pair {
+    display: flex;
+    gap: 10px;
+    margin: 5px 0;
+}
+
+.input-box {
+    width: 110px;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     text-align: center;
 }
 
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #4CAF50;
-}
-
-label {
-    display: block;
-    font-size: 16px;
-    margin-bottom: 8px;
-    color: #555;
-}
-
-input[type="text"], input[type="file"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
+.submit-button {
+    margin-top: 20px;
     padding: 10px 20px;
     font-size: 16px;
-    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
     cursor: pointer;
-    width: 100%;
+    border-radius: 5px;
 }
-
-button:hover {
-    background-color: #45a049;
+.output-box{
+    width: 110px;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+.pairup{
+    flex-direction: column;
+}
+.submit-button:hover {
+    background-color: #0056b3;
 }
